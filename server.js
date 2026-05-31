@@ -43,7 +43,6 @@ mongoose.connect(MONGODB_URI, {
 })
 .catch(err => {
     console.error('❌ MongoDB error:', err.message);
-    console.log('⚠️ Running without database - signup/login disabled');
 });
 
 // ============================================
@@ -158,11 +157,16 @@ app.post('/api/login', async (req, res) => {
 });
 
 // ============================================
-// CHAT API (OpenRouter)
+// CHAT API (OpenRouter) - Uses environment variable
 // ============================================
 app.post('/api/chat', async (req, res) => {
     try {
-        const API_KEY = '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';
+        // Use environment variable for API key (no hardcoded secret!)
+        const API_KEY = process.env.OPENROUTER_API_KEY;
+        
+        if (!API_KEY) {
+            return res.status(500).json({ error: 'OpenRouter API key not configured. Please set OPENROUTER_API_KEY environment variable.' });
+        }
         
         const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
             method: 'POST',
