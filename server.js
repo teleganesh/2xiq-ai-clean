@@ -21,7 +21,7 @@ app.post('/api/chat', async (req, res) => {
             headers: {
                 'Authorization': `Bearer ${API_KEY}`,
                 'Content-Type': 'application/json',
-                'HTTP-Referer': 'https://2xiq-ai-app.onrender.com',
+                'HTTP-Referer': 'https://2xiq-ai-clean.onrender.com',
                 'X-Title': '2xIQ AI'
             },
             body: JSON.stringify(req.body)
