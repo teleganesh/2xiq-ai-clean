@@ -1,12 +1,16 @@
 {
   "name": "2xiq-ai-platform",
-  "version": "1.0.0",
-  "description": "Premium AI Platform with multiple AI models",
+  "version": "2.0.0",
+  "description": "Premium AI Platform with MongoDB Authentication",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0",
+    "cors": "^2.8.5"
   }
 }
